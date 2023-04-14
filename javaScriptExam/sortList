@@ -1,0 +1,31 @@
+let prompt = require(`prompt-sync`)();
+let log = console.log;
+
+
+
+function sort(listOne,listTwo){
+    let newList = []
+    for (let i = 0; i < listOne.length; i++) {
+        newList.push(listOne[i])
+    }
+
+    for (let i = 0; i < listTwo.length; i++) {
+        newList.push(listTwo[i])
+    }
+
+    let temp = 0;
+    for (let i = 0; i < newList.length; i++) {
+        for (let j = i+1; j < newList.length; j++) {
+            if (newList[i] > newList[j]) {
+                temp = newList[i]
+                newList[i] = newList[j]
+                newList[j] = temp
+            }
+        }
+    }
+    return newList
+}
+
+let listOne = [1,3,4,5]
+let listTwo = [2,6,7,8]
+log(sort(listOne,listTwo))
